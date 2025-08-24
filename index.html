@@ -1,116 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Callado Simuladores - Aluguel de Simuladores para Eventos</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico?v=2" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
-  <link rel="manifest" href="site.webmanifest?v=2">
-
-  <style>
-    body { font-family: 'Poppins', sans-serif; background-color: #1D1231; color: #E0E0E0; }
-    .brand-orange { color: #F29400; }
-    .bg-brand-orange { background-color: #F29400; }
-    .hover-bg-brand-orange:hover { background-color: #d98200; }
-    .brand-gray { color: #616D7E; }
-    .bg-brand-gray { background-color: #616D7E; }
-    .brand-dark-blue { color: #1D1231; }
-    .bg-brand-dark-blue { background-color: #1D1231; }
-    .section-title { font-weight: 900; font-size: 2.5rem; line-height: 1.2; }
-    @media (min-width: 768px) { .section-title { font-size: 3rem; } }
-    .card-bg { background-color: rgba(97, 109, 126, 0.1); border: 1px solid rgba(97, 109, 126, 0.2); backdrop-filter: blur(10px); }
-
-    /* Splash Screen */
-    #splash-screen { position: fixed; inset: 0; width: 100vw; height: 100vh; background-color: #1D1231; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s ease-out; }
-    #splash-screen.hidden { opacity: 0; pointer-events: none; }
-    #splash-video { width: 100%; height: 100%; object-fit: cover; }
-    #skip-button { position: absolute; bottom: 30px; right: 30px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.3); cursor: pointer; z-index: 10000; transition: background-color 0.3s; }
-    #skip-button:hover { background-color: rgba(0, 0, 0, 0.8); }
-
-    /* Hero */
-    #hero-video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover; }
-
-    /* Galeria */
-    .embed-wrap { position: relative; width: 100%; padding-top: 56.25%; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-    .embed-wrap iframe, .embed-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .embed-border { position: relative; padding: 6px; border-radius: 1rem; background: linear-gradient(45deg, #F29400, #FF6B00, #FFD700); }
-  </style>
-</head>
-<body class="overflow-hidden">
-
-  <!-- Splash Screen -->
-  <div id="splash-screen">
-    <video id="splash-video" autoplay muted playsinline>
-      <source src="intro.mp4" type="video/mp4">
-      Seu navegador não suporta vídeos.
-    </video>
-    <button id="skip-button">Pular Apresentação</button>
-  </div>
-
-  <!-- Cabeçalho -->
-  <header class="bg-brand-dark-blue/80 backdrop-blur-sm sticky top-0 z-40 shadow-lg shadow-black/20">
-    <!-- ... restante do cabeçalho ... -->
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <!-- ... seções hero, simuladores, eventos, galeria, sobre, contato ... -->
-  </main>
-
-  <!-- Rodapé -->
-  <footer class="bg-black">
-    <!-- ... rodapé ... -->
-  </footer>
-
-  <script>
+<script>
+    // Inicia a biblioteca de ícones Lucide
     lucide.createIcons();
 
-    // Mobile menu
+    // Lógica para o menu mobile
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton) {
-      mobileMenuButton.addEventListener('click', () => {
+    const navLinks = mobileMenu.querySelectorAll('a');
+
+    mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-      });
-    }
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
 
-    // Splash screen logic corrigido
-    (function(){
-      function hideSplashScreen(){
-        const splash = document.getElementById('splash-screen');
-        if(!splash) return;
-        splash.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-        setTimeout(()=>{ splash.style.display = 'none'; },800);
-      }
-      function setup(){
-        const skip = document.getElementById('skip-button');
-        const video = document.getElementById('splash-video');
-        if(skip && !skip.__bound){
-          skip.addEventListener('click', hideSplashScreen);
-          skip.__bound=true;
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Lógica para a tela de apresentação (Splash Screen)
+    window.addEventListener('load', () => {
+        const splashScreen = document.getElementById('splash-screen');
+        const splashVideo = document.getElementById('splash-video');
+        const skipButton = document.getElementById('skip-button');
+
+        // Função para esconder o splash screen
+        function hideSplashScreen() {
+            splashScreen.classList.add('hidden');
+            // Libera o scroll da página principal
+            document.body.classList.remove('overflow-hidden'); 
         }
-        if(video && !video.__bound){
-          video.addEventListener('ended', hideSplashScreen);
-          video.__bound=true;
-        }
-        setTimeout(hideSplashScreen,12000); // fallback
-      }
-      document.addEventListener('DOMContentLoaded', setup);
-    })();
-  </script>
-</body>
-</html>
+
+        // --- CORREÇÃO APLICADA AQUI ---
+        // 1. Adiciona o evento de clique ao botão "Pular"
+        skipButton.addEventListener('click', hideSplashScreen);
+
+        // 2. (Bônus) Adiciona um evento para esconder a tela quando o vídeo acabar sozinho
+        splashVideo.addEventListener('ended', hideSplashScreen);
+    });
+</script>
