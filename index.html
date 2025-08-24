@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Favicons -->
+  <!-- Favicon -->
   <link rel="icon" href="favicon.ico?v=2" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2" />
@@ -33,18 +33,19 @@
     .card-bg { background-color: rgba(97, 109, 126, 0.1); border: 1px solid rgba(97, 109, 126, 0.2); backdrop-filter: blur(10px); }
 
     /* Splash Screen */
-    #splash-screen { position: fixed; inset: 0; width: 100vw; height: 100vh; background-color: #1D1231; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity .6s ease-out; }
+    #splash-screen { position: fixed; inset: 0; width: 100vw; height: 100vh; background-color: #1D1231; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease-out; }
     #splash-screen.hidden { opacity: 0; pointer-events: none; }
     #splash-video { width: 100%; height: 100%; object-fit: cover; }
     #skip-button { position: absolute; bottom: 30px; right: 30px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.3); cursor: pointer; z-index: 10000; transition: background-color 0.3s; }
     #skip-button:hover { background-color: rgba(0, 0, 0, 0.8); }
 
     /* Hero */
+    #hero { position: relative; min-height: 100vh; }
     #hero-video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover; }
 
     /* Galeria */
     .embed-wrap { position: relative; width: 100%; padding-top: 56.25%; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-    .embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .embed-wrap iframe, .embed-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .embed-border { position: relative; padding: 6px; border-radius: 1rem; background: linear-gradient(45deg, #F29400, #FF6B00, #FFD700); }
   </style>
 </head>
@@ -134,8 +135,7 @@
         <div class="mt-12 flex justify-center">
           <div class="embed-border w-full max-w-4xl rounded-2xl shadow-2xl">
             <div class="embed-wrap">
-              <iframe src="https://player.vimeo.com/video/1112674110?title=0&byline=0&portrait=0#t=0"
-                      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://player.vimeo.com/video/1112674110?title=0&byline=0&portrait=0#t=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -147,15 +147,11 @@
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
           <div class="md:w-1/2">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop"
-                 alt="Pessoa usando óculos de realidade virtual"
-                 class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop" alt="Pessoa usando óculos de realidade virtual" class="rounded-2xl shadow-2xl w-full h-auto object-cover" />
           </div>
           <div class="md:w-1/2">
             <h2 class="section-title text-white">Onde o real e o <span class="brand-orange">extraordinário se encontram</span></h2>
-            <p class="mt-6 text-lg text-gray-300 font-light leading-relaxed">
-              Com simuladores de corrida e outras realidades imersivas, a Callado coloca o usuário no centro da ação.
-            </p>
+            <p class="mt-6 text-lg text-gray-300 font-light leading-relaxed">Com simuladores de corrida e outras realidades imersivas, a Callado coloca o usuário no centro da ação.</p>
           </div>
         </div>
       </div>
@@ -165,59 +161,32 @@
     <section id="contato" class="py-20 md:py-32 bg-black/20">
       <div class="container mx-auto px-6">
         <div class="text-center">
-          <h2 class="section-title text-white">Leve essa Experiência <br><span class="brand-orange">para o seu Evento</span></h2>
+          <h2 class="section-title text-white">Leve essa Experiência <br /><span class="brand-orange">para o seu Evento</span></h2>
           <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Entre em contato e solicite um orçamento.</p>
         </div>
-
         <div class="mt-16 max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
-          <!-- Contatos -->
           <div class="md:w-1/2 space-y-6">
             <div class="card-bg rounded-lg p-6 flex items-center gap-4">
-              <a href="https://wa.me/5538988362315" target="_blank" aria-label="WhatsApp">
-                <i data-lucide="phone" class="w-8 h-8 brand-orange"></i>
-              </a>
+              <a href="https://wa.me/5538988362315" target="_blank" aria-label="WhatsApp"><i data-lucide="phone" class="w-8 h-8 brand-orange"></i></a>
               <div>
                 <h3 class="text-xl font-bold text-white">Telefone / WhatsApp</h3>
                 <a href="https://wa.me/5538988362315" target="_blank" class="text-lg text-gray-300 hover:brand-orange transition-colors">(38) 98836-2315</a>
               </div>
             </div>
             <div class="card-bg rounded-lg p-6 flex items-center gap-4">
-              <a href="https://instagram.com/calladosimuladores" target="_blank" aria-label="Instagram @calladosimuladores">
-                <i data-lucide="instagram" class="w-8 h-8 brand-orange"></i>
-              </a>
+              <a href="https://instagram.com/calladosimuladores" target="_blank" aria-label="Instagram @calladosimuladores"><i data-lucide="instagram" class="w-8 h-8 brand-orange"></i></a>
               <div>
                 <h3 class="text-xl font-bold text-white">Instagram</h3>
                 <a href="https://instagram.com/calladosimuladores" target="_blank" class="text-lg text-gray-300 hover:brand-orange transition-colors">@calladosimuladores</a>
               </div>
             </div>
           </div>
-
-          <!-- Formulário (ENVIA PARA ditocallado@outlook.com) -->
           <div class="md:w-1/2 card-bg rounded-lg p-8">
-            <form action="https://formsubmit.co/ditocallado@outlook.com" method="POST">
-              <!-- Configurações -->
-              <input type="hidden" name="_subject" value="Novo orçamento via site - Callado Simuladores">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <!-- Redirecionar após envio (opcional; troque pela URL pública do seu site) -->
-              <!-- <input type="hidden" name="_next" value="https://seu-dominio.com/#mensagem-enviada"> -->
-
-              <!-- Honeypot anti-spam (invisível para humanos) -->
-              <input type="text" name="_honey" style="display:none">
-
-              <input name="nome" type="text" placeholder="Nome Completo"
-                     class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" required>
-
-              <input name="email" type="email" placeholder="seu@email.com"
-                     class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" required>
-
-              <textarea name="mensagem" placeholder="Fale um pouco sobre seu evento..."
-                        class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" rows="4" required></textarea>
-
-              <button type="submit"
-                      class="w-full bg-brand-orange text-white font-bold py-3 px-5 rounded-lg shadow-md hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">
-                Enviar Mensagem
-              </button>
+            <form action="#" method="POST">
+              <input type="text" placeholder="Nome Completo" class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" required />
+              <input type="email" placeholder="seu@email.com" class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" required />
+              <textarea placeholder="Fale um pouco sobre seu evento..." class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" rows="4" required></textarea>
+              <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3 px-5 rounded-lg shadow-md hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">Enviar Mensagem</button>
             </form>
           </div>
         </div>
@@ -228,13 +197,13 @@
   <!-- Rodapé -->
   <footer class="bg-black">
     <div class="container mx-auto px-6 py-8 text-center text-gray-400">
-      <a href="#home"><img src="Logo.png" alt="Logo Callado Simuladores" class="h-10 mx-auto mb-4"></a>
+      <a href="#home"><img src="Logo.png" alt="Logo Callado Simuladores" class="h-10 mx-auto mb-4" /></a>
       <p>&copy; 2025 Callado Simuladores. Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script>
-    // Ícones (protegido para não quebrar JS se a CDN falhar)
+    // Ícones com proteção
     try { if (window.lucide) lucide.createIcons(); } catch (e) {}
 
     // Menu mobile
@@ -243,13 +212,11 @@
       var menu = document.getElementById('mobile-menu');
       if(btn && menu){
         btn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
-        menu.querySelectorAll('a').forEach(function(a){
-          a.addEventListener('click', function(){ menu.classList.add('hidden'); });
-        });
+        menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.add('hidden'); }); });
       }
     })();
 
-    // Splash screen robusta
+    // Splash screen robusta — garante que some e rola para o topo/hero
     (function(){
       function hideSplash(){
         var splash = document.getElementById('splash-screen');
@@ -259,6 +226,7 @@
         splash.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
         setTimeout(function(){ splash.style.display = 'none'; }, 600);
+        // Garante que o usuário veja o início do site
         try {
           var hero = document.getElementById('home');
           if(hero && hero.scrollIntoView){ hero.scrollIntoView({behavior:'instant', block:'start'}); }
@@ -270,7 +238,9 @@
         var video = document.getElementById('splash-video');
         if(skip && !skip.__bound){ skip.addEventListener('click', hideSplash); skip.__bound = true; }
         if(video && !video.__bound){ video.addEventListener('ended', hideSplash); video.__bound = true; }
+        // Fallback: some em 12s mesmo se o vídeo travar
         if(!window.__splashTimeout){ window.__splashTimeout = setTimeout(hideSplash, 12000); }
+        // Disponibiliza função global para fallback inline, se precisar
         window.__hideSplash = hideSplash;
       }
       document.addEventListener('DOMContentLoaded', setup);
