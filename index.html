@@ -117,7 +117,6 @@
 </head>
 <body class="overflow-hidden">
 
-    <!-- Tela de Apresentação (Splash Screen) -->
     <div id="splash-screen">
         <video id="splash-video" autoplay muted playsinline>
             <source src="intro.mp4" type="video/mp4">
@@ -126,15 +125,12 @@
         <button id="skip-button">Pular Apresentação</button>
     </div>
 
-    <!-- Cabeçalho -->
     <header class="bg-brand-dark-blue/80 backdrop-blur-sm sticky top-0 z-40 shadow-lg shadow-black/20">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
             <a href="#home">
                 <img src="Logo.png" alt="Logo Callado Simuladores" class="h-10 md:h-12">
             </a>
 
-            <!-- Navegação para Desktop -->
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#simuladores" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Simuladores</a>
                 <a href="#eventos" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Eventos</a>
@@ -143,18 +139,15 @@
                 <a href="#contato" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Contato</a>
             </nav>
 
-            <!-- Botão de Orçamento -->
             <a href="https://wa.me/5538988362315" target="_blank" class="hidden md:block bg-brand-orange text-white font-bold py-2 px-6 rounded-lg shadow-md hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">
                 Solicite um Orçamento
             </a>
             
-            <!-- Menu Mobile (Ícone) -->
             <button id="mobile-menu-button" class="md:hidden text-white">
                 <i data-lucide="menu" class="w-8 h-8"></i>
             </button>
         </div>
         
-        <!-- Navegação Mobile (Oculta por padrão) -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-dark-blue">
             <a href="#simuladores" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-brand-gray/20 transition-colors">Simuladores</a>
             <a href="#eventos" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-brand-gray/20 transition-colors">Eventos</a>
@@ -166,7 +159,6 @@
     </header>
 
     <main>
-        <!-- Seção Hero com Vídeo de Fundo -->
         <section id="home" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
             <video autoplay loop muted playsinline id="hero-video-bg" style="filter: brightness(0.35);">
                 <source src="intro.mp4" type="video/mp4">
@@ -186,7 +178,6 @@
             </div>
         </section>
 
-        <!-- Seção de Simuladores -->
         <section id="simuladores" class="py-20 md:py-32">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-title text-white">Nossos <span class="brand-orange">Simuladores</span></h2>
@@ -194,7 +185,6 @@
                     Equipamentos de alta tecnologia que garantem o máximo realismo e transformam o comum em extraordinário.
                 </p>
                 <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Card Simulador -->
                     <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
                         <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                             <i data-lucide="car-front" class="brand-orange w-14 h-14"></i>
@@ -202,7 +192,6 @@
                         <h3 class="mt-6 text-2xl font-bold text-white">Corrida</h3>
                         <p class="mt-2 text-gray-400">Sinta a velocidade e a adrenalina das pistas mais famosas do mundo.</p>
                     </div>
-                    <!-- Card Simulador -->
                     <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
                         <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                             <i data-lucide="plane-takeoff" class="brand-orange w-14 h-14"></i>
@@ -210,7 +199,6 @@
                         <h3 class="mt-6 text-2xl font-bold text-white">Avião</h3>
                         <p class="mt-2 text-gray-400">Assuma o controle e pilote aeronaves com realismo impressionante.</p>
                     </div>
-                    <!-- Card Simulador -->
                     <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
                         <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                             <i data-lucide="rocket" class="brand-orange w-14 h-14"></i>
@@ -218,7 +206,6 @@
                         <h3 class="mt-6 text-2xl font-bold text-white">Nave Espacial</h3>
                         <p class="mt-2 text-gray-400">Explore galáxias distantes em uma aventura interplanetária.</p>
                     </div>
-                    <!-- Card Simulador -->
                     <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
                         <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                             <i data-lucide="roller-coaster" class="brand-orange w-14 h-14"></i>
@@ -230,7 +217,6 @@
             </div>
         </section>
 
-        <!-- Seção Eventos -->
         <section id="eventos" class="py-20 md:py-32 bg-black/20">
             <div class="container mx-auto px-6">
                 <div class="text-center">
@@ -260,7 +246,6 @@
             </div>
         </section>
 
-        <!-- Seção Galeria -->
         <section id="galeria" class="py-20 md:py-32">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-title text-white">Nossa <span class="brand-orange">Galeria</span></h2>
@@ -280,7 +265,6 @@
             </div>
         </section>
 
-        <!-- Seção Sobre -->
         <section id="sobre" class="py-20 md:py-32">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
@@ -302,7 +286,6 @@
             </div>
         </section>
         
-        <!-- Seção Contato -->
         <section id="contato" class="py-20 md:py-32 bg-black/20">
             <div class="container mx-auto px-6">
                 <div class="text-center">
@@ -312,7 +295,6 @@
                     </p>
                 </div>
                 <div class="mt-16 max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
-                    <!-- Informações de Contato -->
                     <div class="md:w-1/2 space-y-6">
                          <div class="card-bg rounded-lg p-6 flex items-center gap-4">
                             <i data-lucide="phone" class="w-8 h-8 brand-orange"></i>
@@ -336,32 +318,30 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Formulário -->
                     <div class="md:w-1/2 card-bg rounded-lg p-8">
-                        <form action="#" method="POST">
+                        <form action="https://formspree.io/f/SUA_URL_UNICA_AQUI" method="POST">
                             <div class="mb-5">
                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Seu nome</label>
-                                <input type="text" id="name" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5" placeholder="Nome Completo" required>
+                                <input type="text" id="name" name="name" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5" placeholder="Nome Completo" required>
                             </div>
                             <div class="mb-5">
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Seu email</label>
-                                <input type="email" id="email" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5" placeholder="seu@email.com" required>
+                                <input type="email" id="email" name="email" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5" placeholder="seu@email.com" required>
                             </div>
                             <div class="mb-5">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Sua mensagem</label>
-                                <textarea id="message" rows="4" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5" placeholder="Fale um pouco sobre seu evento..." required></textarea>
+                                <textarea id="message" name="message" rows="4" class="bg-gray-700/50 border border-gray-600 text-white text-sm rounded-lg focus:ring-brand-orange focus:border-brand-orange block w-full p-2.5" placeholder="Fale um pouco sobre seu evento..." required></textarea>
                             </div>
                             <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3 px-5 rounded-lg shadow-md hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">
                                 Enviar Mensagem
                             </button>
                         </form>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
     <footer class="bg-black">
         <div class="container mx-auto px-6 py-8 text-center text-gray-400">
             <a href="#home">
