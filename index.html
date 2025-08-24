@@ -2,7 +2,7 @@
     // Inicia a biblioteca de ícones Lucide
     lucide.createIcons();
 
-    // Lógica para o menu mobile
+    // Lógica para o menu mobile (não precisa esperar os vídeos)
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = mobileMenu.querySelectorAll('a');
@@ -17,8 +17,9 @@
         });
     });
 
-    // Lógica para a tela de apresentação (Splash Screen)
-    window.addEventListener('load', () => {
+    // --- MUDANÇA PRINCIPAL AQUI ---
+    // Executa assim que o HTML estiver pronto, sem esperar por imagens/vídeos
+    document.addEventListener('DOMContentLoaded', () => {
         const splashScreen = document.getElementById('splash-screen');
         const splashVideo = document.getElementById('splash-video');
         const skipButton = document.getElementById('skip-button');
@@ -30,11 +31,12 @@
             document.body.classList.remove('overflow-hidden'); 
         }
 
-        // --- CORREÇÃO APLICADA AQUI ---
-        // 1. Adiciona o evento de clique ao botão "Pular"
+        // Adiciona o evento de clique ao botão "Pular"
+        // Isso vai funcionar imediatamente agora
         skipButton.addEventListener('click', hideSplashScreen);
 
-        // 2. (Bônus) Adiciona um evento para esconder a tela quando o vídeo acabar sozinho
+        // Adiciona um evento para esconder a tela quando o vídeo acabar sozinho
+        // Se o vídeo não carregar, este evento simplesmente não será disparado, sem quebrar o site.
         splashVideo.addEventListener('ended', hideSplashScreen);
     });
 </script>
