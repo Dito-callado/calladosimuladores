@@ -1,23 +1,269 @@
-<!-- Seção Galeria -->
-<section id="galeria" class="py-20 md:py-32">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="section-title text-white">
-      Nossa <span class="brand-orange">Galeria</span>
-    </h2>
-    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-400">
-      Confira um pouco mais sobre a experiência imersiva da Callado Simuladores.
-    </p>
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Callado Simuladores - Aluguel de Simuladores para Eventos</title>
 
-    <div class="mt-12 flex justify-center">
-      <div class="embed-border w-full max-w-4xl rounded-2xl shadow-2xl">
-        <div class="embed-wrap">
-          <iframe
-            src="https://player.vimeo.com/video/1112674110?title=0&byline=0&portrait=0#t=0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+  <!-- Tailwind & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Favicons (opcional) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    /* Identidade */
+    body { font-family: 'Poppins', sans-serif; background-color: #1D1231; color: #E0E0E0; }
+    .brand-orange { color: #F29400; }
+    .bg-brand-orange { background-color: #F29400; }
+    .hover-bg-brand-orange:hover { background-color: #d98200; }
+    .brand-gray { color: #616D7E; }
+    .bg-brand-gray { background-color: #616D7E; }
+    .brand-dark-blue { color: #1D1231; }
+    .bg-brand-dark-blue { background-color: #1D1231; }
+    .section-title { font-weight: 900; font-size: 2.5rem; line-height: 1.2; }
+    @media (min-width: 768px) { .section-title { font-size: 3rem; } }
+    .card-bg { background-color: rgba(97,109,126,.1); border: 1px solid rgba(97,109,126,.2); backdrop-filter: blur(10px); }
+
+    /* Hero vídeo de fundo */
+    #hero-video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover; }
+
+    /* Galeria */
+    .embed-wrap { position: relative; width: 100%; padding-top: 56.25%; border-radius: .75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,.5); }
+    .embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .embed-border { position: relative; padding: 6px; border-radius: 1rem; background: linear-gradient(45deg, #F29400, #FF6B00, #FFD700); }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="bg-brand-dark-blue/80 backdrop-blur-sm sticky top-0 z-40 shadow-lg shadow-black/20">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home"><img src="Logo.png" alt="Logo Callado Simuladores" class="h-10 md:h-12"></a>
+
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#simuladores" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Simuladores</a>
+        <a href="#eventos" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Eventos</a>
+        <a href="#galeria" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Galeria</a>
+        <a href="#sobre" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Sobre</a>
+        <a href="#contato" class="text-gray-300 hover:brand-orange transition-colors duration-300 font-semibold">Contato</a>
+      </nav>
+
+      <a href="https://wa.me/5538988362315" target="_blank" class="hidden md:block bg-brand-orange text-white font-bold py-2 px-6 rounded-lg shadow-md hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">Solicite um Orçamento</a>
+
+      <button id="mobile-menu-button" class="md:hidden text-white" aria-label="Abrir menu">
+        <i data-lucide="menu" class="w-8 h-8"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark-blue">
+      <a href="#simuladores" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-brand-gray/20 transition-colors">Simuladores</a>
+      <a href="#eventos" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-brand-gray/20 transition-colors">Eventos</a>
+      <a href="#galeria" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-brand-gray/20 transition-colors">Galeria</a>
+      <a href="#sobre" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-brand-gray/20 transition-colors">Sobre</a>
+      <a href="https://wa.me/5538988362315" target="_blank" class="block text-center py-4 px-4 text-lg bg-brand-orange text-white font-bold hover-bg-brand-orange transition-colors">Solicite um Orçamento</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+      <video autoplay loop muted playsinline id="hero-video-bg" style="filter: brightness(0.35);">
+        <source src="intro.mp4" type="video/mp4">
+        Seu navegador não suporta o vídeo de fundo.
+      </video>
+      <div class="absolute inset-0 bg-brand-dark-blue/90 backdrop-blur-sm z-10"></div>
+      <div class="relative z-20 container mx-auto px-6">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-wider leading-tight">
+          <span class="brand-orange">Viaje para outra realidade.</span>
+        </h1>
+        <p class="mt-6 text-xl md:text-2xl text-gray-300 font-light">
+          A experiência imersiva que vai movimentar o seu evento.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#simuladores" class="inline-block bg-brand-orange text-white font-bold text-lg py-4 px-10 rounded-lg shadow-lg hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">
+            Conheça os Simuladores
+          </a>
+          <a href="#galeria" class="inline-block border border-white/40 text-white font-bold text-lg py-4 px-10 rounded-lg hover:bg-white/10 transition-all duration-300">
+            Ver Galeria
+          </a>
         </div>
       </div>
+    </section>
+
+    <!-- Simuladores -->
+    <section id="simuladores" class="py-20 md:py-32">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="section-title text-white">Nossos <span class="brand-orange">Simuladores</span></h2>
+        <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-400">Equipamentos de alta tecnologia que garantem o máximo realismo e transformam o comum em extraordinário.</p>
+
+        <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
+            <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+              <i data-lucide="car-front" class="brand-orange w-14 h-14"></i>
+            </div>
+            <h3 class="mt-6 text-2xl font-bold text-white">Corrida</h3>
+            <p class="mt-2 text-gray-400">Sinta a velocidade e a adrenalina das pistas mais famosas do mundo.</p>
+          </div>
+
+          <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
+            <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+              <i data-lucide="plane-takeoff" class="brand-orange w-14 h-14"></i>
+            </div>
+            <h3 class="mt-6 text-2xl font-bold text-white">Avião</h3>
+            <p class="mt-2 text-gray-400">Assuma o controle e pilote aeronaves com realismo impressionante.</p>
+          </div>
+
+          <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
+            <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+              <i data-lucide="rocket" class="brand-orange w-14 h-14"></i>
+            </div>
+            <h3 class="mt-6 text-2xl font-bold text-white">Nave Espacial</h3>
+            <p class="mt-2 text-gray-400">Explore galáxias distantes em uma aventura interplanetária.</p>
+          </div>
+
+          <div class="card-bg rounded-xl p-8 transform hover:scale-105 hover:-translate-y-2 transition-transform duration-300 shadow-lg">
+            <div class="bg-brand-orange/20 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+              <i data-lucide="roller-coaster" class="brand-orange w-14 h-14"></i>
+            </div>
+            <h3 class="mt-6 text-2xl font-bold text-white">Montanha-Russa</h3>
+            <p class="mt-2 text-gray-400">Emoções radicais com giros e quedas que desafiam a gravidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eventos -->
+    <section id="eventos" class="py-20 md:py-32 bg-black/20">
+      <div class="container mx-auto px-6">
+        <div class="text-center">
+          <h2 class="section-title text-white">Perfeito para <span class="brand-orange">seu Evento</span></h2>
+          <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-400">Surpreenda seus convidados e crie memórias inesquecíveis.</p>
+        </div>
+        <!-- Cards de eventos/benefícios podem ir aqui -->
+      </div>
+    </section>
+
+    <!-- Galeria (vídeo do link que você passou) -->
+    <section id="galeria" class="py-20 md:py-32">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="section-title text-white">Nossa <span class="brand-orange">Galeria</span></h2>
+        <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-400">
+          Confira um pouco mais sobre a experiência imersiva da Callado Simuladores.
+        </p>
+
+        <div class="mt-12 flex justify-center">
+          <div class="embed-border w-full max-w-4xl rounded-2xl shadow-2xl">
+            <div class="embed-wrap">
+              <iframe
+                src="https://player.vimeo.com/video/1112674110?title=0&byline=0&portrait=0#t=0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-20 md:py-32">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+          <div class="md:w-1/2">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop"
+                 alt="Pessoa usando óculos de realidade virtual"
+                 class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+          </div>
+          <div class="md:w-1/2">
+            <h2 class="section-title text-white">Onde o real e o <span class="brand-orange">extraordinário se encontram</span></h2>
+            <p class="mt-6 text-lg text-gray-300 font-light leading-relaxed">
+              Com simuladores de corrida e outras realidades imersivas, a Callado coloca o usuário no centro da ação,
+              criando experiências que ninguém esquece.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-20 md:py-32 bg-black/20">
+      <div class="container mx-auto px-6">
+        <div class="text-center">
+          <h2 class="section-title text-white">Leve essa Experiência <br><span class="brand-orange">para o seu Evento</span></h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
+            Entre em contato e solicite um orçamento. Estamos prontos para acelerar com você!
+          </p>
+        </div>
+
+        <div class="mt-16 max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
+          <!-- Contatos -->
+          <div class="md:w-1/2 space-y-6">
+            <div class="card-bg rounded-lg p-6 flex items-center gap-4">
+              <a href="https://wa.me/5538988362315" target="_blank" aria-label="WhatsApp">
+                <i data-lucide="phone" class="w-8 h-8 brand-orange"></i>
+              </a>
+              <div>
+                <h3 class="text-xl font-bold text-white">Telefone / WhatsApp</h3>
+                <a href="https://wa.me/5538988362315" target="_blank" class="text-lg text-gray-300 hover:brand-orange transition-colors">
+                  (38) 98836-2315
+                </a>
+              </div>
+            </div>
+
+            <div class="card-bg rounded-lg p-6 flex items-center gap-4">
+              <a href="https://instagram.com/calladosimuladores" target="_blank" aria-label="Instagram @calladosimuladores">
+                <i data-lucide="instagram" class="w-8 h-8 brand-orange"></i>
+              </a>
+              <div>
+                <h3 class="text-xl font-bold text-white">Instagram</h3>
+                <a href="https://instagram.com/calladosimuladores" target="_blank" class="text-lg text-gray-300 hover:brand-orange transition-colors">
+                  @calladosimuladores
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulário -->
+          <div class="md:w-1/2 card-bg rounded-lg p-8">
+            <form action="#" method="POST">
+              <input type="text" placeholder="Nome Completo" class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" required>
+              <input type="email" placeholder="seu@email.com" class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" required>
+              <textarea placeholder="Fale um pouco sobre seu evento..." class="mb-4 w-full p-2.5 rounded-lg bg-gray-700/50 border border-gray-600 text-white" rows="4" required></textarea>
+              <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3 px-5 rounded-lg shadow-md hover-bg-brand-orange transition-all duration-300 transform hover:scale-105">
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="bg-black">
+    <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+      <a href="#home"><img src="Logo.png" alt="Logo Callado Simuladores" class="h-10 mx-auto mb-4"></a>
+      <p>&copy; 2025 Callado Simuladores. Todos os direitos reservados.</p>
     </div>
-  </div>
-</section>
+  </footer>
+
+  <script>
+    // Ícones
+    lucide.createIcons();
+
+    // Menu mobile
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    }
+  </script>
+</body>
+</html>
