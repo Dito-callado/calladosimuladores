@@ -511,5 +511,25 @@
       })();
     </script>
 
+
+<script>
+  // Remove duplicated Vimeo blocks inside #galeria (keep only the first)
+  (function() {
+    const galeria = document.querySelector('#galeria');
+    if (!galeria) return;
+    const vimeos = galeria.querySelectorAll('iframe[src*="player.vimeo.com"]');
+    if (vimeos.length > 1) {
+      for (let i = 1; i < vimeos.length; i++) {
+        const block = vimeos[i].closest('.mt-16.max-w-5xl.mx-auto') || vimeos[i].parentElement;
+        if (block && block.parentElement) {
+          block.parentElement.removeChild(block);
+        } else {
+          vimeos[i].remove();
+        }
+      }
+    }
+  })();
+</script>
+
 </body>
 </html>
